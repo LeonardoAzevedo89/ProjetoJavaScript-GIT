@@ -1,0 +1,11 @@
+
+
+#aluno{
+    width: 70%;
+}
+#telerro, #erro, #dateerro {
+    display:none;
+    color:red;
+    font-size: 12px;
+    font-weight: bold;
+ }

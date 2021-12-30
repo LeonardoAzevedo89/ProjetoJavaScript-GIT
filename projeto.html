@@ -1,0 +1,50 @@
+
+
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Projeto Incubação </title>
+    
+    <script src="projeto.js"></script>
+    <link rel="stylesheet" href="projetofinal.css">
+</head>
+<body>
+   
+    <div id="borda" style="width:35%;float:left">
+        <center><h1>Cadastro de Aluno</h1></center>
+        <hr> 
+        <b>Nome Completo:</b>
+        <br>
+        <input id="aluno"   placeholder="Insere o Nome do Aluno">
+        <label id="erro"></label>
+        <br>
+        <b>Telefone:</b>
+        <br>
+        <input id="tel"  type="tel" placeholder="(xx)-xxxx-xxxx">
+        <label id="telerro"></label>
+        <br>
+        <b>Data de Nascimento: </b>
+        <br>
+        <input id="data" type="date">
+        <label id="dateerro"></label>
+        <br>
+        <b>Nota Final:</b>
+        <br>
+        <input id="nota" placeholder="Nota Final do Aluno">
+        <br>
+        <button id="botao"  onclick="insere()" type="submit">Criar Aluno</button>
+        <button id="botao" onclick="limpar()"  type="submit">Limpar</button>
+        <br>
+       
+        
+
+     </div>
+        
+        
+    <div id="listaAlunos"  style="width:60%;float:right">
+        <center><h1>Lista de Alunos</h1></center>
+        <hr> 
+    </div>
+    
+    </body>
+</html>
