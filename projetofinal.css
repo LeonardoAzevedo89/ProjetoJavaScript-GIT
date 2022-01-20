@@ -6,7 +6,8 @@
 
 #telerro,
 #erro,
-#dateerro {
+#dateerro,
+#notaerro {
   display: none;
   color: red;
   font-size: 12px;
@@ -43,4 +44,10 @@
 
 #fundo {
   background: burlywood;
+}
+
+.Linha {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
 }

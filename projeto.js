@@ -1,63 +1,113 @@
-alunos = [];
-totalAlunos=0;
+var alunos = [];
+var objetoAluno={
+   nome:"",
+   fone:"",
+   data:"",
+   nota:""
+}
+var cont=0;
 
 function insere(){
 
 var elemento = document.getElementById("listaAlunos");
-var pessoa = document.getElementById("aluno").value
-var telefone = document.getElementById("tel").value
-var date = document.getElementById("data").value;
-var nota = document.getElementById("nota").value;
+nome = document.getElementById("aluno").value;
+fone = document.getElementById("tel").value;
+data = document.getElementById("data").value;
+nota = document.getElementById("nota").value;
 
-if (pessoa==""){
+
+if (nome==""){
 document.getElementById('erro').innerHTML = 'campo Aluno está vazio';   
 document.getElementById('erro').style.display="block"; 
 }
 else {
 document.getElementById('erro').style.display="none"; 
-if (telefone==""){
+if (fone==""){
    document.getElementById('telerro').innerHTML = 'campo telefone está vazio';
    document.getElementById('telerro').style.display="block";  
 }
 else {
    document.getElementById('telerro').style.display="none"; 
-   if (date==""){
+   if (data==""){
        document.getElementById('dateerro').innerHTML = 'campo Data está vazio';
        document.getElementById('dateerro').style.display="block";  
    }
+   else if (nota == ""){
+      document.getElementById('dateerro').style.display="none";
+      document.getElementById('notaerro').innerHTML = 'campo Nota está vazio';
+      document.getElementById('notaerro').style.display="block"; 
+   }
    else{
-       alert("Aluno Criado com Sucesso!");
-       document.getElementById('dateerro').style.display="none";
-       elemento.innerHTML += "<br><span> <b>Nome do Aluno:</b> " + pessoa + "</span><br>" + "<span><b> Telefone do Aluno:</b> " + 
-       telefone + "</span>" + " <br> <span><b>Data de Nascimento: </b>" + date + "<br><span><b> Nota Final: </b>" + 
-       nota + "</span>" + "<br>"+'<button onclick="excluir();">Excluir</button>' +'<button onclick="editar()">Editar</button>'+ "<br><hr>"; 
-       pessoa = document.getElementById('aluno').value ="";
-       telefone = document.getElementById('tel').value ="";
-       date = document.getElementById('data').value ="";
-       nota = document.getElementById('nota').value ="";
+      alert("Aluno Criado com Sucesso!");
+      document.getElementById('notaerro').style.display="none";
+      alunos[cont] = "Nome: " +nome + " <br> "+ "Telefone: " + fone + " <br> "+ "Data: " + data + " <br> "+ "Nota Final: " + nota + "<br>";
+       
+       var html="";
+       for(i=0;i<=cont;i++) /*faz a contagem das linhas pra jogar no navegador*/
+    {
+       
+        html = html + alunos[i]; 
+        
+    }
+       var div = document.getElementById('listaAlunos');
+       if(elemento == 0){
+       elemento.innerHTML= html +  "<br>"+'<button id="botao" onclick="excluir(\''+cont+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>" ;;
+       }
+       else{
+         elemento.innerHTML= div.innerHTML + "<hr>" + html+ "<br>"+'<button id="botao" onclick="excluir(\''+cont+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>";;
+       }
+       cont++;
+       document.getElementById('aluno').value ="";
+       document.getElementById('tel').value ="";
+       document.getElementById('data').value ="";
+       document.getElementById('nota').value ="";
 }
 }
-}
+}                                            
 
-}
+} 
 function limpar(){
-pessoa = document.getElementById('aluno').value ="";
-telefone = document.getElementById('tel').value ="";
-date = document.getElementById('data').value ="";
-nota = document.getElementById('nota').value ="";
+   document.getElementById('aluno').value ="";
+   document.getElementById('tel').value ="";
+   document.getElementById('data').value ="";
+   document.getElementById('nota').value ="";
 }
 
-function excluir(id){
-if (confirm("Tem certeza que deseja excluir esta linha? " + elemento))
+function excluir(linha){
+if (confirm("Tem certeza que deseja excluir esta linha? " ))
 {
-   document.getElementById(elemento).style.display='none';
+  elemento.innerHTML = document.getElementById(linha).style.display='none';
+  
 }
 }
 
-function editar(){
-if (confirm("Tem certeza que deseja editar este Aluno? " + elemento))
+function editar(linha){
+if (confirm("Tem certeza que deseja editar este Aluno? " ))
 {
-   document.getElementById(elemento).style.display='none';
+   var alterar = prompt(" Para Alterar os dados Digite \n 1- Nome \n 2- Telefone \n 3- Data \n 4- Nota \n S- Sair")
+   alert(alterar);
+   while(alterar !="S"){
+   if (alterar == 1){
+      nome = prompt("Digite o nome do Aluno");
+      document.getElementById('aluno').value = nome;
+   }
+   if (alterar == 2){
+      telefone = prompt("Digite o telefone do Aluno");
+      document.getElementById('tel').value = telefone;
+   }
+   if (alterar == 3){
+      date = prompt("Digite a data de nascimento do Aluno");
+      document.getElementById('data').value = date;
+   }
+   if (alterar == 4){
+      insereNotas();
+      
+   }
+   if (alterar == S){
+      alert("Você cancelou a edição dos dados");
+      
+   }
+ }
 }
 }
 
