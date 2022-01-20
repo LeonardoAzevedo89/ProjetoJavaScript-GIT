@@ -1,10 +1,4 @@
 var alunos = [];
-var objetoAluno={
-   nome:"",
-   fone:"",
-   data:"",
-   nota:""
-}
 var cont=0;
 
 function insere(){
@@ -43,7 +37,7 @@ else {
       alunos[cont] = "Nome: " +nome + " <br> "+ "Telefone: " + fone + " <br> "+ "Data: " + data + " <br> "+ "Nota Final: " + nota + "<br>";
        
        var html="";
-       for(i=0;i<=cont;i++) /*faz a contagem das linhas pra jogar no navegador*/
+       for(i=0;i<=cont;i++) 
     {
        
         html = html + alunos[i]; 
