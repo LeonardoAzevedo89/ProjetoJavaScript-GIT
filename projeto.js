@@ -1,5 +1,6 @@
 var alunos = [];
 var cont=0;
+var linha = 0;
 
 function insere(){
 
@@ -34,8 +35,8 @@ else {
    else{
       alert("Aluno Criado com Sucesso!");
       document.getElementById('notaerro').style.display="none";
-      alunos[cont] = "Nome: " +nome + " <br> "+ "Telefone: " + fone + " <br> "+ "Data: " + data + " <br> "+ "Nota Final: " + nota + "<br>";
-       
+      alunos[cont] ="<br>" + "<b>"+ "Registro:"+ "</b>" + cont + "<br>" + "<b>"+"Nome: "+"</b>" +nome + " <br> "+ "<b>"+ "Telefone: " + "</b>" + fone + " <br> "+ "<b>" + "Data: "+"</b>" + data + " <br> "+ "<b>" +"Nota Final: " +"</b>" + nota + "<br>";
+      
        var html="";
        for(i=0;i<=cont;i++) 
     {
@@ -43,13 +44,10 @@ else {
         html = html + alunos[i]; 
         
     }
-       var div = document.getElementById('listaAlunos');
-       if(elemento == 0){
-       elemento.innerHTML= html +  "<br>"+'<button id="botao" onclick="excluir(\''+cont+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>" ;;
-       }
-       else{
-         elemento.innerHTML= div.innerHTML + "<hr>" + html+ "<br>"+'<button id="botao" onclick="excluir(\''+cont+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>";;
-       }
+       
+       
+         elemento.innerHTML=  html+ "<br>"+'<button id="botao" onclick="excluir(\''+i+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>"+"<br>";;;
+       
        cont++;
        document.getElementById('aluno').value ="";
        document.getElementById('tel').value ="";
@@ -70,7 +68,13 @@ function limpar(){
 function excluir(linha){
 if (confirm("Tem certeza que deseja excluir esta linha? " ))
 {
-  elemento.innerHTML = document.getElementById(linha).style.display='none';
+   registro = prompt("Informe o Registro do Aluno");
+   
+      var al = [];
+      al[0] = alunos[registro];
+      al.splice(0, 1);
+      alunos[registro] = "";
+  
   
 }
 }

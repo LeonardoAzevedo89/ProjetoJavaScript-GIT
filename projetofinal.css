@@ -22,7 +22,8 @@
   text-align: center;
   background: white;
 }
-#listaAlunos {
+
+#lista {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 10px;
