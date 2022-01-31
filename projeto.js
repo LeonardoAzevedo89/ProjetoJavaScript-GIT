@@ -41,12 +41,12 @@ else {
        for(i=0;i<=cont;i++) 
     {
        
-        html = html + alunos[i]; 
+        html = html + alunos[i];
         
     }
        
        
-         elemento.innerHTML=  html+ "<br>"+'<button id="botao" onclick="excluir(\''+i+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>"+"<br>";;;
+         elemento.innerHTML=  html+ "<br>"+'<button id="botao" onclick="excluir(\''+cont+'\');">Excluir</button>' +'<button id="botao" onclick="editar()">Editar</button>'+"<br>"+"<br>";;; 
        
        cont++;
        document.getElementById('aluno').value ="";
@@ -66,46 +66,44 @@ function limpar(){
 }
 
 function excluir(linha){
-if (confirm("Tem certeza que deseja excluir esta linha? " ))
+if (confirm("Tem certeza que deseja excluir um Aluno? " ))
 {
-   registro = prompt("Informe o Registro do Aluno");
+   registro = prompt("Informe o Registro do Aluno à ser excluído");
    
-      var al = [];
-      al[0] = alunos[registro];
-      al.splice(0, 1);
-      alunos[registro] = "";
-  
-  
+   var al = [];
+   var x = 0;
+   al[x] = alunos[registro];
+   al.splice(0, 1);
+   al[x] = "";
+   alunos[registro] = al[x];
+   alert(confirm("Aluno Excluido com sucesso" ));
+   
 }
+}
+function salvar(){
+   var n = document.getElementById('aluno').value;
+   var f = document.getElementById('tel').value ;
+   var d = document.getElementById('data').value;
+   var no = document.getElementById('nota').value;
+   alunos[registro] = "<br>" + "<b>"+ "Registro:"+ "</b>" + registro+ "<br>" + "<b>"+"Nome: "+"</b>" +n + " <br> "+ "<b>"+ "Telefone: " + "</b>" + f + " <br> "+ "<b>" + "Data: "+"</b>" + d + " <br> "+ "<b>" +"Nota Final: " +"</b>" + no + "<br>";
+   document.getElementById('aluno').value ="";
+   document.getElementById('tel').value ="";
+   document.getElementById('data').value ="";
+   document.getElementById('nota').value ="";
 }
 
 function editar(linha){
 if (confirm("Tem certeza que deseja editar este Aluno? " ))
 {
-   var alterar = prompt(" Para Alterar os dados Digite \n 1- Nome \n 2- Telefone \n 3- Data \n 4- Nota \n S- Sair")
-   alert(alterar);
-   while(alterar !="S"){
-   if (alterar == 1){
-      nome = prompt("Digite o nome do Aluno");
-      document.getElementById('aluno').value = nome;
-   }
-   if (alterar == 2){
-      telefone = prompt("Digite o telefone do Aluno");
-      document.getElementById('tel').value = telefone;
-   }
-   if (alterar == 3){
-      date = prompt("Digite a data de nascimento do Aluno");
-      document.getElementById('data').value = date;
-   }
-   if (alterar == 4){
-      insereNotas();
+   
+      registro = prompt("Informe o Registro do Aluno");
+   
       
-   }
-   if (alterar == S){
-      alert("Você cancelou a edição dos dados");
-      
-   }
- }
+       document.getElementById('nota').value = nota;
+       document.getElementById('aluno').value = nome;
+       document.getElementById('tel').value = fone;
+       document.getElementById('data').value = data;
+     
 }
 }
 
